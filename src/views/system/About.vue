@@ -30,20 +30,12 @@
               <li>启用主题：{{ activatedTheme.name }}</li>
               <li>启动时间：{{ environments.startTime | moment }}</li>
             </ul>
-            <a class="mr-3" href="https://halo.run" target="_blank"
+            <a class="mr-3" href="https://github.com/go-sonic/sonic" target="_blank"
               >官网
               <a-icon type="link" />
             </a>
-            <a class="mr-3" href="https://docs.halo.run" target="_blank"
-              >文档
-              <a-icon type="link" />
-            </a>
-            <a class="mr-3" href="https://github.com/halo-dev" target="_blank"
+            <a class="mr-3" href="https://github.com/go-sonic" target="_blank"
               >开源组织
-              <a-icon type="link" />
-            </a>
-            <a class="mr-3" href="https://bbs.halo.run" target="_blank"
-              >在线社区
               <a-icon type="link" />
             </a>
           </a-card>

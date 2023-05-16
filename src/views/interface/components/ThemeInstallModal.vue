@@ -22,12 +22,14 @@
             <a-alert closable type="info">
               <template slot="message">
                 更多主题请访问：
-                <a href="https://halo.run/themes.html" target="_blank">https://halo.run/themes</a>
+                <a href="https://github.com/go-sonic/sonic#theme-ecology" target="_blank"
+                  >https://github.com/go-sonic/sonic#theme-ecology</a
+                >
               </template>
             </a-alert>
           </div>
         </a-tab-pane>
-        <a-tab-pane key="2" tab="远程下载">
+        <a-tab-pane key="2" tab="远程下载(暂不支持)">
           <a-form-model ref="remoteInstallForm" :model="remote" :rules="remote.rules" layout="vertical">
             <a-form-model-item help="* 支持 Git 仓库地址，ZIP 链接。" label="远程地址：" prop="url">
               <a-input v-model="remote.url" />
@@ -49,7 +51,9 @@
             <a-alert closable type="info">
               <template slot="message">
                 目前仅支持远程 Git 仓库和 ZIP 下载链接。更多主题请访问：
-                <a href="https://halo.run/themes.html" target="_blank">https://halo.run/themes</a>
+                <a href="https://github.com/go-sonic/sonic#theme-ecology" target="_blank"
+                  >https://github.com/go-sonic/sonic#theme-ecology</a
+                >
               </template>
             </a-alert>
           </div>
