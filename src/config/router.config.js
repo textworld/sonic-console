@@ -55,6 +55,12 @@ export const asyncRouterMap = [
             name: 'TagList',
             component: () => import('@/views/post/TagList'),
             meta: { title: '标签', hiddenHeaderContent: false }
+          },
+          {
+            path: '/scrap/list',
+            name: 'ScrapList',
+            component: () => import('@/views/scrap/ScrapList.vue'),
+            meta: { title: '所有收藏', hiddenHeaderContent: false }
           }
         ]
       },

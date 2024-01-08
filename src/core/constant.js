@@ -302,3 +302,30 @@ export const commentStatuses = {
     text: '回收站'
   }
 }
+
+export const scrapColumns = [
+  {
+    title: '标题',
+    dataIndex: 'title',
+    width: '200px',
+    ellipsis: true,
+    scopedSlots: { customRender: 'postTitle' }
+  },
+  {
+    title: '链接',
+    dataIndex: 'url'
+  },
+  {
+    title: '原站点',
+    dataIndex: 'origin_url'
+  },
+  {
+    title: '路径',
+    dataIndex: 'path'
+  },
+  {
+    title: '操作',
+    width: '180px',
+    scopedSlots: { customRender: 'action' }
+  }
+]

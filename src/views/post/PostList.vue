@@ -53,6 +53,7 @@ export default {
       postListView.list.params.keyword = to.query.keyword
       postListView.list.params.categoryId = to.query.categoryId
       postListView.list.params.status = to.query.status
+      console.log('beforeRouteEnter')
       postListView.handleListPosts()
     })
   },
@@ -63,6 +64,7 @@ export default {
     },
 
     onRecyclePostModalClose() {
+      console.log('onRecyclePostModalClose')
       this.$refs.postListView.handleListPosts()
     }
   }
