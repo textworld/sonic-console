@@ -490,7 +490,6 @@ export default {
      * Select next sheet
      */
     async handleSelectNext() {
-      console.log('handleSelectNext')
       const index = this.list.data.findIndex(post => post.id === this.list.selected.id)
       if (index < this.list.data.length - 1) {
         this.sheetSettingLoading = true

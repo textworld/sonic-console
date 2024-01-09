@@ -528,7 +528,6 @@ export default {
     'list.params': {
       deep: true,
       handler: function (newVal) {
-        console.log('list.params')
         if (newVal) {
           const params = JSON.parse(JSON.stringify(this.list.params))
           this.$emit('change:params', params)
@@ -541,7 +540,6 @@ export default {
      * Fetch post data
      */
     async handleListPosts(enableLoading = true) {
-      console.log('handleListPosts')
       try {
         if (enableLoading) {
           this.list.loading = true
@@ -597,7 +595,6 @@ export default {
      * Handle page change
      */
     handlePageChange(page = 1) {
-      console.log('handlePageChange')
       this.list.params.page = page - 1
       this.handleListPosts()
     },
@@ -606,7 +603,6 @@ export default {
      * Handle page size change
      */
     handlePageSizeChange(current, size) {
-      console.log('handlePageSizeChange')
       this.$log.debug(`Current: ${current}, PageSize: ${size}`)
       this.list.params.page = 0
       this.list.params.size = size
@@ -764,7 +760,6 @@ export default {
     },
 
     onPostSavedCallback() {
-      console.log('onPostSavedCallback')
       this.handleListPosts(false)
     },
 
@@ -778,7 +773,6 @@ export default {
      * Select previous post
      */
     async handleSelectPrevious() {
-      console.log('handleSelectPrevious')
       const index = this.list.data.findIndex(post => post.id === this.list.selected.id)
       if (index > 0) {
         this.postSettingLoading = true
@@ -801,7 +795,6 @@ export default {
      * Select next post
      */
     async handleSelectNext() {
-      console.log('handleSelectNext')
       const index = this.list.data.findIndex(post => post.id === this.list.selected.id)
       if (index < this.list.data.length - 1) {
         this.postSettingLoading = true

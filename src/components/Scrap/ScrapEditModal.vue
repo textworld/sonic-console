@@ -92,8 +92,6 @@ export default {
     async handleSavePage() {
       try {
         this.form.saving = true
-
-        console.log('handleSavePage')
         await apiClient.scrap.update(this.form.model.id, this.form.model)
       } catch (e) {
         this.$log.error('Failed to save page', e)
@@ -104,7 +102,6 @@ export default {
       }
     },
     handleSavedCallback() {
-      console.log('handleSavedCallback')
       if (this.form.saveError) {
         this.form.saveError = false
       } else {

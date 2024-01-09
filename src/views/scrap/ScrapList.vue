@@ -1,6 +1,6 @@
 <template>
   <page-view>
-    <ScrapListView ref="scrapListView" :columns="scrapColumns"> </ScrapListView>
+    <ScrapListView ref="scrapListView" :columns="scrapColumns" @change:params="onChangeParams"> </ScrapListView>
   </page-view>
 </template>
 
@@ -30,6 +30,12 @@ export default {
 
       scrapListView.handleScrapList()
     })
+  },
+  methods: {
+    onChangeParams(params) {
+      const path = this.$router.history.current.path
+      this.$router.replace({ path, query: params }).catch(err => err)
+    }
   }
 }
 </script>

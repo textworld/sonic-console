@@ -64,18 +64,10 @@ export default {
   computed: {
     pagination() {
       return {
-        page: this.list.params.page + 1,
+        page: this.list.params.page,
         size: this.list.params.size,
         total: this.list.total
       }
-    },
-    selectPreviousButtonDisabled() {
-      const index = this.list.data.findIndex(post => post.id === this.list.selected.id)
-      return index === 0 && !this.list.hasPrevious
-    },
-    selectNextButtonDisabled() {
-      const index = this.list.data.findIndex(post => post.id === this.list.selected.id)
-      return index === this.list.data.length - 1 && !this.list.hasNext
     }
   },
   data() {
@@ -98,11 +90,21 @@ export default {
       selectedRowKeys: []
     }
   },
+  watch: {
+    'list.params': {
+      deep: true,
+      handler: function (newVal) {
+        if (newVal) {
+          const params = JSON.parse(JSON.stringify(this.list.params))
+          this.$emit('change:params', params)
+        }
+      }
+    }
+  },
   methods: {
     async handleScrapList() {
       try {
         const response = await apiClient.scrap.list(this.list.params)
-        console.log(response)
         this.list.data = response.data.content
         this.list.hasNext = response.data.hasNext
         this.list.hasPrevious = response.data.hasPrevious
@@ -114,7 +116,6 @@ export default {
       }
     },
     handleEditClick(page) {
-      console.log('handlerEditClick', page)
       this.list.selected = page
       this.pageEditVisible = true
     },
@@ -125,8 +126,7 @@ export default {
      * Handle page change
      */
     handlePageChange(page = 1) {
-      console.log('handlePageChange')
-      this.list.params.page = page - 1
+      this.list.params.page = page
       this.handleScrapList()
     },
 
@@ -134,7 +134,6 @@ export default {
      * Handle page size change
      */
     handlePageSizeChange(current, size) {
-      console.log('handlePageSizeChange')
       this.$log.debug(`Current: ${current}, PageSize: ${size}`)
       this.list.params.page = 1
       this.list.params.size = size
